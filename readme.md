@@ -1,6 +1,6 @@
 # EHU(esl-hot-update)
 
-- esl-hot-update
+- 与默认的web server完美解耦，可以支持http-server、edp webserver start等原来的启动逻辑
 - 对esl模块，做热更新加载，极大方便调试！
 - 完美兼容edp、edp-webserver，使用方便
 - 全面支持支持MVC、Component、monitor、模板文件、LESS等等
@@ -36,7 +36,7 @@
         // 从服务器根目录到需要监控的文件夹中间path
         "baseDir": "nirvana-workspace",
         // hot update 需要watch的文件夹（不包括baseDir）
-        "watchDirs": "src,dep",
+        "watchDirs": "src",
         // 入口文件（不包括baseDir）
         "indexHTML": "main.html",
         // ehu启动端口号（不可与默认的服务器端口号冲突）
@@ -65,3 +65,10 @@
 或者先配置defaultServerCLI为""
 
 > ehu
+
+# FAQ
+
+1、web server挂掉如何解决？
+
+- 先按原来的方式启动默认web server，如edp webserver start
+- 再在启动web server的路径，重开一个命令行窗口启动ehu，并加参数-n，即ehu -n
